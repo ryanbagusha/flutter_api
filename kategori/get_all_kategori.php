@@ -7,16 +7,13 @@ date_default_timezone_set('Asia/Jakarta');
 
 $json = array();
 
-$sql = $conn->query("SELECT * FROM berita WHERE id_type = 1");
+$sql = $conn->query("SELECT * FROM kategori");
 $jml = $sql->num_rows;
 if ($jml > 0) {
     while ($data = $sql->fetch_object()) {
         $arr_row = array();
-        $arr_row['id'] = $data->id_berita;
-        $arr_row['judul'] = $data->judul;
-        $arr_row['tanggal'] = $data->tanggal;
-        // $arr_row['isi'] = $data->isi;
-        $arr_row['media'] = $data->media;
+        $arr_row['id'] = $data->id_kategori;
+        $arr_row['nama'] = $data->nama;
         // $arr_row['total_view'] = $data->total_view;
         $json[] = $arr_row;
     }
