@@ -9,7 +9,7 @@ $id_type = $_GET['id_type'];
 
 $json = array();
 
-$sql = $conn->query("SELECT * FROM berita WHERE id_type = $id_type");
+$sql = $conn->query("SELECT * FROM berita WHERE id_type = $id_type ORDER BY tanggal DESC");
 $jml = $sql->num_rows;
 if ($jml > 0) {
     while ($data = $sql->fetch_object()) {
@@ -17,7 +17,7 @@ if ($jml > 0) {
         $arr_row['id'] = $data->id_berita;
         $arr_row['judul'] = $data->judul;
         $arr_row['tanggal'] = $data->tanggal;
-        // $arr_row['isi'] = $data->isi;
+        $arr_row['isi'] = $data->isi;
         $arr_row['media'] = $data->media;
         // $arr_row['total_view'] = $data->total_view;
         $json[] = $arr_row;

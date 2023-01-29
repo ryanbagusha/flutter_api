@@ -5,11 +5,9 @@ require_once("../conn.php");
 mysqli_connect_errno();
 date_default_timezone_set('Asia/Jakarta');
 
-$id_kategori = $_GET['id_kategori'];
-
 $json = array();
 
-$sql = $conn->query("SELECT * FROM berita WHERE id_kategori = $id_kategori ORDER BY tanggal DESC");
+$sql = $conn->query("SELECT MAX(total_view), id_berita, judul, tanggal, isi, media FROM berita");
 $jml = $sql->num_rows;
 if ($jml > 0) {
     while ($data = $sql->fetch_object()) {
@@ -25,6 +23,7 @@ if ($jml > 0) {
 } else {
     $json[] = "Error";
 }
+
 
 header('Content-Type: application/json');
 print json_encode($json, JSON_PRETTY_PRINT);
