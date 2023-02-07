@@ -14,6 +14,7 @@ if ($jml > 0) {
         $arr_row = array();
         $arr_row['id'] = $data->id_tag;
         $arr_row['nama'] = $data->nama;
+        $arr_row['deskripsi'] = $data->deskripsi;
         // $arr_row['total_view'] = $data->total_view;
         $json[] = $arr_row;
     }
