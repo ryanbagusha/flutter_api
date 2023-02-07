@@ -16,6 +16,7 @@ if ($jml > 0) {
         $arr_row['nama'] = $data->nama;
         $arr_row['email'] = $data->email;
         $arr_row['username'] = $data->username;
+        $arr_row['id_role'] = $data->id_role;
         $arr_row['role'] = $data->role;
         // $arr_row['total_view'] = $data->total_view;
         $json[] = $arr_row;
