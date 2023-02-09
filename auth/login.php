@@ -19,6 +19,7 @@ $jml = $sql->num_rows;
 if ($jml > 0) {
     while ($rs = $sql->fetch_object()) {
         $arr_row = array();
+        $arr_row['id'] = $rs->id_user;
         $arr_row['nama'] = $rs->nama;
         $arr_row['email'] = $rs->email;
         $arr_row['username'] = $rs->username;
